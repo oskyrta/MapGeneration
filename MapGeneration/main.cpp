@@ -18,13 +18,13 @@ int main()
 
 	MapGenerator gen;
 	bool regenerate = false;
+	float t = 0.5, n = 8;
 
 	do
 	{
-		float t = 0.6, n = 5;
-		std::cin >> t >> n;
-		gen.RandomPlusInterpolateGenerate(t, n);
-		gen.DrawCave();
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+			gen.Generate(DiamodAndSquare);
+		Sleep(1000 / 60);
 	} 
-	while (true);
+	while (gen.Draw(Landscape, 1));
 }
